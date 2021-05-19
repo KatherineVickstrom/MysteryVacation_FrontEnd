@@ -20,6 +20,8 @@ public class CityService {
         
         @Autowired
         private RabbitTemplate rabbitTemplate;
+        @Autowired
+        private FanoutExchange fanout;
         
         public CityInfo getCityInfo(String cityName) {
            
@@ -37,10 +39,6 @@ public class CityService {
               return null;
            }
      }
-        
-            
-    @Autowired
-    private FanoutExchange fanout;
      
         public void requestReservation( 
                        String cityName, 

@@ -1,9 +1,6 @@
 package mystery_vacation.domain;
 
-import mystery_vacation.domain.City;
 import mystery_vacation.domain.CityInfo;
-import mystery_vacation.domain.Country;
-import mystery_vacation.domain.TempAndTime;
 
 public class CityInfo {
    

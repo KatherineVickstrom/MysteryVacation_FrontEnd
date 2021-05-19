@@ -16,17 +16,11 @@ public class CityController {
    @Autowired
    private CityService cityService;             
    @GetMapping("/cities/{city}")
-   public String getCityInfo(@PathVariable("city") String cityName,Model model) {
+   public String getCityInfo(@PathVariable("city") String cityName, Model model) {
+      System.out.println(cityName);
       CityInfo cityInfo = cityService.getCityInfo(cityName);
-      if (cityInfo == null) {
-              // error.  city not found
-              model.addAttribute("error", "City not found. "+cityName);
-              return "cityerror";
-      } else {
-              model.addAttribute("cityInfo", cityInfo);
-              return "cityshow";
-      }
-
+      model.addAttribute("cityInfo", cityInfo);
+      return "showcity";
    }
    
 
