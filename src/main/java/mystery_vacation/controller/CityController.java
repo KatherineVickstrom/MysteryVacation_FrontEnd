@@ -21,6 +21,7 @@ public class CityController {
           model.addAttribute("cityInfo", cityInfo);
           return "showcity";
       } else {
+          model.addAttribute("error", "City " + cityName + " not found.");
           return "cityerror";
       }
    }
