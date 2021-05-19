@@ -16,10 +16,13 @@ public class CityController {
    private CityService cityService;             
    @GetMapping("/cities/{city}")
    public String getCityInfo(@PathVariable("city") String cityName, Model model) {
-      System.out.println(cityName);
       CityInfo cityInfo = cityService.getCityInfo(cityName);
-      model.addAttribute("cityInfo", cityInfo);
-      return "showcity";
+      if (cityInfo != null) {
+          model.addAttribute("cityInfo", cityInfo);
+          return "showcity";
+      } else {
+          return "cityerror";
+      }
    }
    
 
