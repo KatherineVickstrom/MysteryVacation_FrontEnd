@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import mystery_vacation.domain.CityInfo;
 import mystery_vacation.service.CityService;
  
@@ -17,10 +16,14 @@ public class CityController {
    private CityService cityService;             
    @GetMapping("/cities/{city}")
    public String getCityInfo(@PathVariable("city") String cityName, Model model) {
-      System.out.println(cityName);
       CityInfo cityInfo = cityService.getCityInfo(cityName);
-      model.addAttribute("cityInfo", cityInfo);
-      return "showcity";
+      if (cityInfo != null) {
+          model.addAttribute("cityInfo", cityInfo);
+          return "showcity";
+      } else {
+          model.addAttribute("error", "City " + cityName + " not found.");
+          return "cityerror";
+      }
    }
    
 
