@@ -4,7 +4,8 @@ import mystery_vacation.domain.CityInfo;
 
 public class CityInfo {
    
-   private String time, temp;
+   private String time;
+   private String temp;
    private Country country;
    private City city;
    
